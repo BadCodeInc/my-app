@@ -1,3 +1,7 @@
 .item {
-  font-size: 30px;
+  font-size: 20px;
+  display: flex;
+  background: burlywood;
+  gap: 20px;
+  padding: 20px;
 }

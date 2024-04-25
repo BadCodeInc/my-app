@@ -3,24 +3,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.image {
-  width: 300px;
-}
-
-.item {
-  margin: 20px;
-}
-
-.items {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.counter {
-  display: flex;
-  gap: 5px;
-}
-
 .logo {
   width: 100px;
   height: 100px;
