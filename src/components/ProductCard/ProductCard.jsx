@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import style from './ProductCard.module.css';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../redux/cartSlice';
+import { useSelector } from 'react-redux';
 
-const ProductCard = ({ name, price, image }) => {
-  const [value, setValue] = useState(0);
+const ProductCard = ({ id, name, price, image }) => {
   const [isShow, setIsShow] = useState(false);
+  const dispatch = useDispatch();
+
+  const item = useSelector((state) => state.cart.items.find((obj) => obj.id === id));
+
+  const addedCount = item ? item.count : 0;
 
   const onClickAdd = () => {
-    setValue(value + 1);
+    dispatch(addItem({ id, name, price, image }));
   };
 
   return (
@@ -16,7 +23,7 @@ const ProductCard = ({ name, price, image }) => {
         <p>{name}</p>
         <p>{price} руб.</p>
         <div className={style.counter}>
-          <p>{value}</p>
+          <p>{addedCount}</p>
           <button onClick={onClickAdd}>+</button>
         </div>
         <button

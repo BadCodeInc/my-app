@@ -10,8 +10,6 @@ const Products = () => {
 
   const products = useSelector((state) => state.products.products);
 
-  console.log(products);
-
   const dispatch = useDispatch();
 
   const fetchItems = () => {
@@ -45,7 +43,6 @@ const Products = () => {
 
   return (
     <div>
-      <button onClick={AddProduct}>ADD</button>
       <div className={style.items}>
         {products.map((product) => (
           <ProductCard key={product.id} {...product} />
