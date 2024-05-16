@@ -12,10 +12,24 @@ const Products = () => {
 
   const dispatch = useDispatch();
 
-  const fetchItems = () => {
-    axios.get('https://662a6f3467df268010a3eb19.mockapi.io/items').then((res) => {
+  const fetchItems = async () => {
+    // await axios
+    //   .get('https://662a6f3467df268010a3eb19.mockapi.io/items')
+    //   .then((res) => {
+    //     dispatch(setProducts(res.data));
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    try {
+      const res = await axios.get('https://662a6f3467df268010a3eb19.mockapi.io/items');
       dispatch(setProducts(res.data));
-    });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      console.log('11');
+    }
   };
 
   useEffect(() => {

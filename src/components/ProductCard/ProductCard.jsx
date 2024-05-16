@@ -3,6 +3,7 @@ import style from './ProductCard.module.css';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cartSlice';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ id, name, price, image }) => {
   const [isShow, setIsShow] = useState(false);
@@ -19,9 +20,11 @@ const ProductCard = ({ id, name, price, image }) => {
   return (
     <div>
       <div className={style.item}>
-        <img className={style.image} src={image} />
-        <p>{name}</p>
-        <p>{price} руб.</p>
+        <Link to={`/items/${id}`}>
+          <img className={style.image} src={image} />
+          <p>{name}</p>
+          <p>{price} руб.</p>
+        </Link>
         <div className={style.counter}>
           <p>{addedCount}</p>
           <button onClick={onClickAdd}>+</button>

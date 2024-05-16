@@ -11,6 +11,9 @@ const Header = () => {
   return (
     <div className={style.item}>
       <div>
+        <Link to="/forms">Формы</Link>
+      </div>
+      <div>
         <Link to="/">Главная</Link>
       </div>
       <div>
